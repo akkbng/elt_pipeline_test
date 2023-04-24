@@ -5,7 +5,7 @@ models:
         description: Staging table that keeps track of all devices used by stores
         columns:
           - name: device_id 
-            description: This is the device id
+            description: Unique identifier for the device.
             tests:
               - unique
               - not_null
@@ -17,7 +17,7 @@ models:
                   values: [1, 2, 3, 4, 5]
                   quote: false
           - name: store_id
-            description: The unique id of the store that the store uses. 
+            description: Unique identifier for the store.
             tests:
               - not_null
       
@@ -25,6 +25,7 @@ models:
         description: Staging table that stores all the store data
         columns:
           - name: store_id
+            description: Unique identifier for the store.
             tests:
               - unique
               - not_null
@@ -37,15 +38,15 @@ models:
         description: Staging table that stores all the transaction data
         columns:
           - name: transaction_id
-            description: This is a unique key for all transactions
+            description: Unique identifier for the transaction.
             tests:
               - unique
               - not_null
           - name: product_name
-            description: Name of the product that is bought during the transaction
+            description: Name of the product
             tests:
               - not_null
           - name: product_sku
-            description: Unique product stock keeping unit information
+            description: Unique identifier for the product unit
             tests:
               - not_null

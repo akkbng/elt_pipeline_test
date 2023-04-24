@@ -7,21 +7,21 @@ sources:
      - name: devices_source
        columns:
         - name: id
-          description: Device id, primary key of the devices table
+          description: Unique identifier for the device.
           tests:
             - unique
             - not_null
      - name: stores_source
        columns:
         - name: id
-          description: Store id, primary key of the stores table
+          description: Unique identifier for the store.
           tests:
             - unique
             - not_null
      - name: transactions_source
        columns:
         - name: id
-          description: Transaction id, primary key of the transactions table
+          description: Unique identifier for the transaction.
           tests:
             - unique
             - not_null
@@ -31,7 +31,7 @@ models:
         description: Staging table that stores all the transaction data
         columns:
           - name: transaction_id
-            description: This is a unique key for all transactions
+            description: Unique identifier for the transaction.
             tests:
               - unique
               - not_null
@@ -39,11 +39,11 @@ models:
             tests:
               - not_null
           - name: device_id 
-            description: This is the device id
+            description: Unique identifier for the device.
             tests:
               - not_null
           - name: product_sku
-            description: Unique product stock keeping unit information
+            description: Unique identifier for the product unit
             tests:
               - not_null
           - name: type
