@@ -1,0 +1,29 @@
+version: 2
+
+models:                   
+      - name: transactions
+        description: Staging table that stores all the transaction data
+        columns:
+          - name: transaction_id
+            description: This is a unique key for all transactions
+            tests:
+              - unique
+              - not_null
+          - name: store_id
+            tests:
+              - not_null
+          - name: device_id 
+            description: This is the device id
+            tests:
+              - not_null
+          - name: product_sku
+            description: Unique product stock keeping unit information
+            tests:
+              - not_null
+          - name: type
+            description: Type of device provided to stores. Value is between 1-5
+            tests:
+              - not_null
+              - accepted_values:
+                  values: [1, 2, 3, 4, 5]
+                  quote: false             
