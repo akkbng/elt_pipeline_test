@@ -12,13 +12,13 @@ if __name__ == "__main__":
     transactionsFile = "../sample_data/transaction_-_transaction.csv.csv"
 
     fileList = [storesFile, devicesFile, transactionsFile]
+    fileNames = ["storesFile.csv", "devicesFile.csv", "transactionsFile.csv"]
 
     bucket = "sumup_test_bucket" #created manually in GCP, with 2 years date retention policy
+
+    for i in range(len(fileList)):
+        req = service.objects().insert(bucket=bucket, name=fileNames[i], media_body=fileList[i])
+        req.execute()
     
-    req = service.objects().insert(bucket=bucket, name="storesFile.csv", media_body=storesFile)
-    req.execute()
-    req = service.objects().insert(bucket=bucket, name="devicesFile.csv", media_body=devicesFile)
-    req.execute()
-    req = service.objects().insert(bucket=bucket, name="transactionsFile.csv", media_body=transactionsFile)
-    req.execute()
+    print("Files uploaded to GCP bucket")
 
