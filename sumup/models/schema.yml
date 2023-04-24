@@ -1,5 +1,13 @@
 version: 2
 
+sources:
+  - name: bigquery
+    schema: raw_datasets
+    tables:
+     - name: devices_source
+     - name: stores_source
+     - name: transactions_source
+
 models:                   
       - name: transactions
         description: Staging table that stores all the transaction data

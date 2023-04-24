@@ -8,4 +8,4 @@ select
     typology,
     customer_id
 
-from `dbt-test-project-384521.raw_datasets.stores_source`
+from {{ source('bigquery', 'stores_source') }}

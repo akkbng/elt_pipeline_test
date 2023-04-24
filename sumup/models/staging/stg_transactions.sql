@@ -11,4 +11,4 @@ SELECT
     PARSE_DATETIME('%m/%d/%Y %T', created_at) as created_at,
     PARSE_DATETIME('%m/%d/%Y %T', happened_at) as happened_at
 
-FROM `dbt-test-project-384521.raw_datasets.transactions_source`
+FROM {{ source('bigquery', 'transactions_source') }}
