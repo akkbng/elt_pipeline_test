@@ -3,7 +3,7 @@ SELECT
     device_id,
     product_name,
     product_sku,
-    product_name_copy,
+    category_name,
     amount,
     status,
     card_number,
