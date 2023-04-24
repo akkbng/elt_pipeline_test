@@ -23,6 +23,9 @@ The extract and load steps of the pipeline are handled by separate Python script
 
 ### Architecture Diagram
 
+![alt text](https://github.com/akkbng/elt_pipeline_test/blob/main/pipeline.png)
+
+
 The steps are as follows:
     - Read the three local CSV files with Python to gather raw data 
     - Write the extracted bronze data into Google Cloud Storage buckets.
