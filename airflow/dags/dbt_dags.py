@@ -2,10 +2,8 @@ import os
 from airflow.utils.dates import days_ago
 
 from airflow import DAG
-from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.operators.bash import BashOperator
-from airflow.operators.dummy_operator import DummyOperator
-from airflow_dbt.operators.dbt_operator import DbtRunOperator, DbtTestOperator
+
 
 
 schedule_interval = "@daily"
@@ -23,13 +21,13 @@ with DAG(
 ) as dag:
     task_1 = BashOperator(
         task_id='dbt_test',
-        bash_command='cd /sumup && dbt test --profiles-dir .',
+        bash_command='cd ../sumup && dbt test',
         dag=dag
     )
 
     task_2 = BashOperator(
         task_id='dbt_run',
-        bash_command='cd /sumup && dbt run --profiles-dir .',
+        bash_command='cd ../sumup && dbt run',
         dag=dag
     )
 
