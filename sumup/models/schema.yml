@@ -5,8 +5,26 @@ sources:
     schema: raw_datasets
     tables:
      - name: devices_source
+       columns:
+        - name: id
+          description: Device id, primary key of the devices table
+          tests:
+            - unique
+            - not_null
      - name: stores_source
+       columns:
+        - name: id
+          description: Store id, primary key of the stores table
+          tests:
+            - unique
+            - not_null
      - name: transactions_source
+       columns:
+        - name: id
+          description: Transaction id, primary key of the transactions table
+          tests:
+            - unique
+            - not_null
 
 models:                   
       - name: transactions
