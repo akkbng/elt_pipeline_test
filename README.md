@@ -2,11 +2,11 @@
 
 The goal of this test is to showcase an end to end ELT pipeline from a data source to data warehouse using Python, SQL, and DBT and data models to answer business questions.
 
-### Folder Structure
+### Folder Structure Pointers
 - **scripts**: Contains the Python scripts used to extract and load the data. 
     - **extract_to_gs.py**: Reads the CSV files and writes them into Google Cloud Storage buckets.
     - **load_to_bq.py**: Loads the data from Google Cloud Storage buckets into BigQuery.
-- **sumup**: Contains the standard DBT project setup.
+- **sumup**: Contains the standard DBT project setup. I've used dbt core for this project.
     - **analyses** folder  the contains the SQL queries used to answer the business questions defined in the task description. As these questions were more like ad-hoc analysis, I have written the queries as analyses instead of models.
 - **airflow**: Contains the DAG file that orchestrates the pipeline with airflow.
     - **docker-compose.yml**: Contains the Docker Compose file that is used to run the pipeline.
@@ -65,8 +65,9 @@ The dataset consists of 3 CSV files, each containing raw data about a different 
 
     
 ## Future improvements:
-- The data pipeline can be containerized with Docker to make it easier to run and deploy, and can be orchestrated with Airflow to schedule the pipeline to run at specific times.
-- Check for PII data and look into pseudonymization of the data due to GDPR regulations.
-- Customer data deletion should be handled with a data retention and right to be forgotten policy.
-- For the simplicity reasons the new data is overwritten to the existing tables in the pipeline. In a real world scenario, the transactions and stores production data should be partitioned by date, and the new data should be loaded into the correct partition.
+- For the simplicity reasons the new data is overwritten to the existing tables in the pipeline. In a real world scenario, the transactions and stores production data should be partitioned by date, and the new data should be loaded into the correct partition. This way the data can be uploaded incrementally.
+- The data pipeline can be containerized with Docker to make it easier to run and deploy, and can be orchestrated with Airflow to schedule the pipeline to run at specific times. Due to time constraints, I was not able to finish the Airflow part of the pipeline.
 - CI/CD pipeline should be implemented to automate the testing and deployment of the pipeline.
+    - Setting up different environments for local development, staging and production.
+- Setting up data access control for the buckets and data warehouse. Clerification of the data access policies such as green (no prod data access), yellow (read only prod data) and red access (read-write prod data).
+- Look into storage restrictions and pseudonymization of the personal data due to GDPR regulations. Customer data deletion should be handled with a data retention and right to be forgotten policy.
