@@ -5,11 +5,10 @@ The goal of this technical test is to showcase an end to end ELT pipeline from a
 ### Folder Structure
 The whole repo is initialized as a DBT project. Some additional folders are added to the project structure:
 - **sample_data**: Contains the raw data in CSV format.
-- **scripts**: Contains the Python scripts used to extract and transform the data.
+- **scripts**: Contains the Python scripts used to extract and load the data.
+- **sumup**: Contains the DBT project.
+    - **analyses** folder  the contains the SQL queries used to answer the business questions defined in the task description.
 
-**analyses** folder contains the SQL queries used to answer the business questions defined in the task description.
-
-I've used DBT cloud in order to make configuration with BigQuery connection easier.
 
 ## Envisioned Data Pipeline
 The envisioned data pipeline will be an ELT pipeline that will extract raw data from the source csv files, load them into storage buckets, and then a data warehouse, and lastly use data models to transform the datasets. 
