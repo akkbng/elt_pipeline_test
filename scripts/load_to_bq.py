@@ -64,7 +64,7 @@ def setup_transactions_table():
             bigquery.SchemaField("device_id", "INTEGER"),
             bigquery.SchemaField("product_name", "STRING"),
             bigquery.SchemaField("product_sku", "STRING"),
-            bigquery.SchemaField("product_name_copy", "STRING"),
+            bigquery.SchemaField("category_name", "STRING"),
             bigquery.SchemaField("amount", "FLOAT"),
             bigquery.SchemaField("status", "STRING"),
             bigquery.SchemaField("card_number", "STRING"),
