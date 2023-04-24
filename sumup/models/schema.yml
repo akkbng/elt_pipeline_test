@@ -46,10 +46,22 @@ models:
             description: Unique identifier for the product unit
             tests:
               - not_null
+          - name: status
+            description: Status of the transaction (accepted, refused, cancelled)
+            tests:
+              - not_null
+          - name: created_at
+            description: Date when the transaction was created
+            tests:
+              - not_null
+          - name: happened_at
+            description: Date when the transaction happened
+            tests:
+              - not_null  
           - name: type
             description: Type of device provided to stores. Value is between 1-5
             tests:
               - not_null
               - accepted_values:
                   values: [1, 2, 3, 4, 5]
-                  quote: false             
+                  quote: false         

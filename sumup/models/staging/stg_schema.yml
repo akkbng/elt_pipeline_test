@@ -30,9 +30,35 @@ models:
               - unique
               - not_null
           - name: name
+            description: Name of the store
             tests:
               - unique
               - not_null
+          - name: address
+            description: Address of the store
+            tests:
+              - not_null
+          - name: city
+            description: City where the store is located
+            tests:
+              - not_null
+          - name: country
+            description: Country where the store is located
+            tests:
+              - not_null
+          - name: created_at
+            description: Date when the store was created
+            tests:
+              - not_null
+          - name: typology
+            description: Type of store
+            tests:
+              - not_null
+          - name: customer_id
+            description: Unique identifier for the customer
+            tests:
+              - not_null
+
               
       - name: stg_transactions
         description: Staging table that stores all the transaction data
@@ -42,6 +68,10 @@ models:
             tests:
               - unique
               - not_null
+          - name: device_id
+            description: Unique identifier for the device.
+            tests:
+              - not_null
           - name: product_name
             description: Name of the product
             tests:
@@ -50,3 +80,33 @@ models:
             description: Unique identifier for the product unit
             tests:
               - not_null
+          - name: category_name
+            description: Name of the category
+            tests:
+              - not_null
+          - name: amount
+            description: Amount of the transaction in EUR
+            tests:
+              - not_null
+          - name: status
+            description: Status of the transaction (accepted, refused, cancelled)
+            tests:
+              - not_null
+          - name: card_number
+            description: Card number used for the transaction
+            tests:
+              - not_null
+          - name: cvv
+            description: CVV code of the card that is used for the transaction
+            tests:
+              - not_null
+          - name: created_at
+            description: Date when the transaction was created
+            tests:
+              - not_null
+          - name: happened_at
+            description: Date when the transaction happened
+            tests:
+              - not_null
+          
+          
